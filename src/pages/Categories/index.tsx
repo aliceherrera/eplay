@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
 import ProductsList from '../../components/ProductsList'
-import { Game } from '../Home'
+
 import {
   useGetActionGamesQuery,
   useGetFightGamesQuery,
@@ -47,11 +46,27 @@ const Caregories = () => {
   if (actionGames && sportGames && fightGames && rpgGames && simulationGames) {
     return (
       <>
-        <ProductsList games={actionGames} title="Ação" background="black" />
-        <ProductsList games={sportGames} title="Esportes" background="gray" />
-        <ProductsList games={fightGames} title="Luta" background="black" />
-        <ProductsList games={rpgGames} title="RPG" background="gray" />
         <ProductsList
+          id="action"
+          games={actionGames}
+          title="Ação"
+          background="black"
+        />
+        <ProductsList
+          id="sports"
+          games={sportGames}
+          title="Esportes"
+          background="gray"
+        />
+        <ProductsList
+          id="fight"
+          games={fightGames}
+          title="Luta"
+          background="black"
+        />
+        <ProductsList id="rpg" games={rpgGames} title="RPG" background="gray" />
+        <ProductsList
+          id="simulation"
           games={simulationGames}
           title="Simulação"
           background="black"
