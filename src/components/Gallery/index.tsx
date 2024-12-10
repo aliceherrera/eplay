@@ -4,7 +4,7 @@ import Section from '../Section'
 
 import { GalleryItem } from '../../pages/Home'
 
-import { Action, Item, Itens, Modal, ModalContent } from './styles'
+import * as S from './styles'
 
 import play from '../../assets/images/play.png'
 import close from '../../assets/images/fechar.png'
@@ -48,9 +48,9 @@ const Gallery = ({ defaultCover, name, itens }: Props) => {
   return (
     <>
       <Section title="Galeria" background="black">
-        <Itens>
+        <S.Items>
           {itens.map((media, index) => (
-            <Item
+            <S.Item
               key={media.url}
               onClick={() => {
                 setModal({
@@ -64,31 +64,28 @@ const Gallery = ({ defaultCover, name, itens }: Props) => {
                 src={getMediaCover(media)}
                 alt={`Mídia ${index + 1} de ${name}`}
               />
-              <Action>
+              <S.Action>
                 <img src={getMediaIcon(media)} alt="Clique para maximizar" />
-              </Action>
-            </Item>
+              </S.Action>
+            </S.Item>
           ))}
-        </Itens>
+        </S.Items>
       </Section>
-      <Modal className={modal.isVisible ? 'visivel' : ''}>
-        <ModalContent className="container">
+      <S.Modal className={modal.isVisible ? 'is-visible' : ''}>
+        <S.ModalContent className="container">
           <header>
             <h4>{name}</h4>
-            <img
-              src={close}
-              alt="ícone de fechar"
-              onClick={() => closeModal()}
-            />
+            <img src={close} alt="ícone de fechar" onClick={closeModal} />
           </header>
           {modal.type === 'image' ? (
             <img src={modal.url} />
           ) : (
             <iframe frameBorder={0} src={modal.url} />
           )}
-        </ModalContent>
+        </S.ModalContent>
         <div onClick={() => closeModal()} className="overlay"></div>
-      </Modal>
+        export default Gallery
+      </S.Modal>
     </>
   )
 }
