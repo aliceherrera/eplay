@@ -39,6 +39,13 @@ export const Sidebar = styled.aside`
     max-width: 100%;
     width: 100%;
   }
+
+  .empty-text {
+    font-size: 14px;
+    line-height: 22px;
+    color: ${colors.white};
+    text-align: center;
+  }
 `
 export const Prices = styled.p`
   font-weight: bold;
@@ -95,5 +102,6 @@ export const CartItem = styled.li`
     position: absolute;
     top: 0;
     right: 0;
+    cursor: pointer;
   }
 `
